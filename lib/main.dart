@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:website/pages/homepage.dart';
 
@@ -45,10 +46,22 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.maxFinite,
-      height: double.maxFinite,
-      color: Colors.red,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SizedBox(
+        width: double.maxFinite,
+        height: double.maxFinite,
+        child: Center(
+          child: AnimatedTextKit(
+            animatedTexts: [
+              FlickerAnimatedText(
+                "Loading...",
+                textStyle: const TextStyle(color: Colors.red, fontSize: 25),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
